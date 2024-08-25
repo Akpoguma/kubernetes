@@ -1,24 +1,19 @@
-#@author cong@cannabis.wiki
-#Horozontal pod scalar
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: bbb-pod-scaler
-  namespace : bbb
+  namespace: bbb
 spec:
-  maxReplicas: 20
-  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: StatefulSet
     name: bbb
+  minReplicas: 1
+  maxReplicas: 10
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 50
-  # behavior:
-  #   scaleDown:
-  #     selectPolicy: Disabled
+          averageUtilization: 70

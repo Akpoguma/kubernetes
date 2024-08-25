@@ -17,46 +17,71 @@ data:
     # for documentation of all options, see:
     #   http://docs.mongodb.org/manual/reference/configuration-options/
 
+    # Where and how to store data.
     storage:
       dbPath: /data/db
       journal:
         enabled: true
       wiredTiger:
         engineConfig:
-            cacheSizeGB: 0
-            journalCompressor: none
-            directoryForIndexes: true
+          cacheSizeGB: 1
+          journalCompressor: none
+          directoryForIndexes: true
         collectionConfig:
-            blockCompressor: none
+          blockCompressor: none
         indexConfig:
-            prefixCompression: false
+          prefixCompression: false
 
+    # Where to write logging data.
+    systemLog:
+      destination: file
+      logAppend: true
+      path: /proc/1/fd/1  # Log to stdout for container environments
 
+    # Network interfaces.
     net:
       port: 27017
-      bindIp: 0.0.0.0
+      bindIp: 0.0.0.0  # Allows connections from any IP
 
+    # How the process runs.
+    processManagement:
+      timeZoneInfo: /usr/share/zoneinfo
 
+    # Replication.
     replication:
       replSetName: rs0
 
+    # Set parameters.
     setParameter:
       diagnosticDataCollectionEnabled: false
+
+    # Security settings.
+    security:
+      javascriptEnabled: false
+
   init-replica.sh: |
     #!/bin/sh
     set -e
 
-
     host=${HOSTNAME:-$(hostname -f)}
 
-    # init replset with defaults
-    mongo local --eval "rs.initiate({
+    # Shut down any running MongoDB instance
+    mongod --pidfilepath /tmp/docker-entrypoint-temp-mongod.pid --shutdown || true
+
+    # Restart MongoDB with replica set and appropriate bindings
+    mongod --oplogSize 8 --replSet rs0 --noauth \
+      --bind_ip 0.0.0.0 --port 27017 \
+      --tlsMode disabled \
+      --logpath /proc/1/fd/1 --logappend \
+      --pidfilepath /tmp/docker-entrypoint-temp-mongod.pid --fork
+
+    # Init replset with specific IP address
+    mongo ${host} --eval "rs.initiate({
       _id: 'rs0',
-      members: [ { _id: 0, host: '127.0.0.1:27017' } ]
+      members: [ { _id: 0, host: '${host}:27017' } ]
     })"
 
     echo "Waiting to become a master"
     echo 'while (!db.isMaster().ismaster) { sleep(100); }' | mongo
 
     echo "I'm the master!"
-      
