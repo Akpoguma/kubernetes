@@ -25,7 +25,7 @@ data:
     server {
         listen 8080 default_server;
         listen [::]:8080 default_server;
-        server_name srv02.bbb.t-assets.de;
+        server_name _;
 
         access_log /dev/stdout;
         absolute_redirect off;
@@ -92,3 +92,4 @@ data:
 
         include /etc/bigbluebutton/nginx/*.nginx;
     }
+

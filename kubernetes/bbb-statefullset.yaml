@@ -38,7 +38,7 @@ spec:
       containers:
         - name: bbb-html5-backend
           image: destinyakpo/bbb-docker-html5:v2.7.3
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: DOMAIN
               valueFrom:
@@ -111,7 +111,7 @@ spec:
 
         - name: bbb-html5-frontend
           image: destinyakpo/bbb-docker-html5:v2.7.3
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: DOMAIN
               valueFrom:
@@ -182,7 +182,7 @@ spec:
 
         - name: bbb-web
           image: destinyakpo/bbb-docker-web:v2.7.3
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           livenessProbe:
             exec:
               command:
@@ -241,7 +241,7 @@ spec:
 
         - name: bbb-freeswitch
           image: destinyakpo/bbb-docker-freeswitch:v1.10.10-v2.7.3
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: DOMAIN
               valueFrom:
@@ -284,7 +284,7 @@ spec:
 
         - name: bbb-nginx
           image: destinyakpo/bbb-docker-nginx:1.23-v5.0.2-v2.7.3
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           volumeMounts:
             - mountPath: /var/bigbluebutton
               name: bbb-volume
@@ -301,7 +301,7 @@ spec:
 
         - name: etherpad
           image: destinyakpo/bbb-docker-etherpad:1.9.1-s8328b77-p068ded5
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: ETHERPAD_API_KEY
               valueFrom:
@@ -311,11 +311,11 @@ spec:
 
         - name: redis
           image: redis:7.2-alpine
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 
         - name: kurento
           image: kurento/kurento-media-server:6.18
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: STUN_IP
               valueFrom:
@@ -333,7 +333,7 @@ spec:
 
         - name: bbb-webrtc-sfu
           image: destinyakpo/bbb-docker-webrtc-sfu:v2.12.0
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: CLIENT_HOST
               value: "0.0.0.0"
@@ -347,7 +347,7 @@ spec:
 
         - name: bbb-fsesl-akka
           image: destinyakpo/bbb-docker-fsesl-akka:v2.7.3
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: FSESL_PASSWORD
               valueFrom:
@@ -357,7 +357,7 @@ spec:
 
         - name: bbb-apps-akka
           image: destinyakpo/bbb-docker-apps-akka:v2.7.3
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: DOMAIN
               valueFrom:
@@ -375,11 +375,11 @@ spec:
 
         - name: bbb-jodconverter
           image: destinyakpo/bbb-docker-jodconverter:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 
         - name: bbb-periodic
           image: destinyakpo/bbb-docker-periodic:v2.7.0
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           volumeMounts:
             - mountPath: /var/bigbluebutton
               name: bbb-volume
@@ -388,7 +388,7 @@ spec:
           image: mongo:4.4
           ports:
             - containerPort: 27017
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           resources: {}
           volumeMounts:
             - mountPath: /data/configdb
