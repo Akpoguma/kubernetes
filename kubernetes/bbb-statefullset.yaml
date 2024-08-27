@@ -407,11 +407,6 @@ spec:
             exec:
               command:
                 - bash -c "if mongo --eval 'quit(db.runCommand({ ping':' 1 }).ok ? 0 ':' 2)'; then exit 0; fi; exit 1;"
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            timeoutSeconds: 1
-            successThreshold: 1
-            failureThreshold: 3
           resources: {}
           volumeMounts:
             - mountPath: /data/configdb
@@ -424,18 +419,6 @@ spec:
             - name: mongo-config
               mountPath: /docker-entrypoint-initdb.d/init-replica.sh
               subPath: init-replica.sh
-          readinessProbe:
-            exec:
-              command:
-                - bash
-                - -c
-                - "if mongo --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)'; then exit 0; else exit 1; fi"
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            timeoutSeconds: 1
-            successThreshold: 1
-            failureThreshold: 3
-          restartPolicy: Always
 
       restartPolicy: Always
       volumes:
