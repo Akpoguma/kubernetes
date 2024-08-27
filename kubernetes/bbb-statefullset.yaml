@@ -476,26 +476,3 @@ spec:
   persistentVolumeClaimRetentionPolicy:
     whenDeleted: Retain
     whenScaled: Retain
-
-        - emptyDir:
-            medium: Memory
-          name: resty-auto-ssl
-
-        - name: ssl-volume
-          hostPath:
-            path: /var/resty-auto-ssl
-            type: DirectoryOrCreate
-
-        - name: mongo-config
-          configMap:
-            defaultMode: 0777
-            name: mongo-config
-            items:
-            - key: mongod.conf
-              path: mongod.conf
-            - key: init-replica.sh
-              path: init-replica.sh
-
-        - name: nginx-config
-          configMap:
-            name: nginx-config
