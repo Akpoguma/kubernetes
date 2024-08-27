@@ -17,49 +17,32 @@ data:
     # for documentation of all options, see:
     #   http://docs.mongodb.org/manual/reference/configuration-options/
 
-    # Where and how to store data.
     storage:
       dbPath: /data/db
       journal:
         enabled: true
       wiredTiger:
         engineConfig:
-          cacheSizeGB: 1
-          journalCompressor: none
-          directoryForIndexes: true
+            cacheSizeGB: 0
+            journalCompressor: none
+            directoryForIndexes: true
         collectionConfig:
-          blockCompressor: none
+            blockCompressor: none
         indexConfig:
-          prefixCompression: false
+            prefixCompression: false
 
-    # Where to write logging data.
-    systemLog:
-      destination: file
-      logAppend: true
-      path: /proc/1/fd/1  # Log to stdout for container environments
 
-    # Network interfaces.
     net:
       port: 27017
-      bindIp: 0.0.0.0  # Allows connections from any IP
+      bindIp: 0.0.0.0
 
-    # How the process runs.
-    processManagement:
-      timeZoneInfo: /usr/share/zoneinfo
 
-    # Replication.
     replication:
       replSetName: rs0
 
-    # Set parameters.
     setParameter:
       diagnosticDataCollectionEnabled: false
-
-    # Security settings.
-    security:
-      javascriptEnabled: false
-
-   init-replica.sh: |
+  init-replica.sh: |
     #!/bin/sh
     set -e
 
