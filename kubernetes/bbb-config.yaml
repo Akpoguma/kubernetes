@@ -214,7 +214,7 @@ data:
   # Define the default locale language code (i.e. 'en' for English) from the fallowing list:
   #  [en, ar, fr, es]
   #DEFAULT_LOCALE: en
-  MONGO_OPLOG_URL: "mongodb://mongodb:27017/local"
-  MONGO_URL: "mongodb://mongodb:27017/bigbluebutton"
+  MONGO_OPLOG_URL: "127.0.0.1:27017"
+  MONGO_URL: "127.0.0.1:27017"
   FSESL_PASSWORD: ClueCon
 
