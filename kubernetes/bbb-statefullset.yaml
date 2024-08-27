@@ -84,9 +84,9 @@ spec:
             - name: INSTANCE_ID
               value: "1"
             - name: MONGO_OPLOG_URL
-              value: "mongodb://mongodb.bbb.svc.cluster.local:27017/local"
+              value: "mongodb://127.0.0.1:27017/local"
             - name: MONGO_URL
-              value: "mongodb://mongodb.bbb.svc.cluster.local:27017/meteor"
+              value: "mongodb://127.0.0.1:27017/meteor"
             - name: ROOT_URL
               value: "http://127.0.0.1/html5client"
             - name: NODE_ENV
@@ -94,7 +94,7 @@ spec:
             - name: SERVER_WEBSOCKET_COMPRESSION
               value: '{"level":5, "maxWindowBits":13, "memLevel":7, "requestMaxWindowBits":13}'
             - name: BIND_IP
-              value: "0.0.0.0"
+              value: "127.0.0.1"
             - name: LANG
               value: "en_US.UTF-8"
             - name: INSTANCE_MAX
@@ -155,9 +155,9 @@ spec:
             - name: INSTANCE_ID
               value: "1"
             - name: MONGO_OPLOG_URL
-              value: "mongodb://mongodb.bbb.svc.cluster.local:27017/local"
+              value: "mongodb://127.0.0.1:27017/local"
             - name: MONGO_URL
-              value: "mongodb://mongodb.bbb.svc.cluster.local:27017/meteor"
+              value: "mongodb://127.0.0.1:27017/meteor"
             - name: ROOT_URL
               value: "http://127.0.0.1/html5client"
             - name: NODE_ENV
@@ -165,7 +165,7 @@ spec:
             - name: SERVER_WEBSOCKET_COMPRESSION
               value: '{"level":5, "maxWindowBits":13, "memLevel":7, "requestMaxWindowBits":13}'
             - name: BIND_IP
-              value: "0.0.0.0"
+              value: "127.0.0.1"
             - name: LANG
               value: "en_US.UTF-8"
             - name: INSTANCE_MAX
