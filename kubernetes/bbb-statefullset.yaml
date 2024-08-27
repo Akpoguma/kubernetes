@@ -389,24 +389,11 @@ spec:
             - mountPath: /var/bigbluebutton
               name: bbb-volume
 
-        - name: mongodb
+         - name: mongodb
           image: mongo:4.4
           ports:
             - containerPort: 27017
           imagePullPolicy: IfNotPresent
-          args:
-            - mongod
-            - --config
-            - /etc/mongod.conf
-            - --oplogSize
-            - "8"
-            - --replSet
-            - rs0
-            - --noauth
-          livenessProbe:
-            exec:
-              command:
-                - bash -c "if mongo --eval 'quit(db.runCommand({ ping':' 1 }).ok ? 0 ':' 2)'; then exit 0; fi; exit 1;"
           resources: {}
           volumeMounts:
             - mountPath: /data/configdb
