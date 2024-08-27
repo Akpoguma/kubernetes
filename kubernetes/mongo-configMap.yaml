@@ -43,26 +43,21 @@ data:
     setParameter:
       diagnosticDataCollectionEnabled: false
   init-replica.sh: |
-   #!/bin/sh
-set -e
+    #!/bin/sh
+    set -e
 
-host=${HOSTNAME:-$(hostname -f)}
 
-# Wait for MongoDB to start up
-until mongo --eval "print(\"waited for connection\")"
-do
-    sleep 2
-done
+    host=${HOSTNAME:-$(hostname -f)}
 
-# Initialize the replica set
-mongo local --eval "rs.initiate({
-  _id: 'rs0',
-  members: [ { _id: 0, host: '127.0.0.1:27017' } ]
-})"
+    # init replset with defaults
+    mongo local --eval "rs.initiate({
+      _id: 'rs0',
+      members: [ { _id: 0, host: '127.0.0.1:27017' } ]
+    })"
 
-echo "Waiting to become a master"
-echo 'while (!db.isMaster().ismaster) { sleep(100); }' | mongo
+    echo "Waiting to become a master"
+    echo 'while (!db.isMaster().ismaster) { sleep(100); }' | mongo
 
-echo "I'm the master!"
-# Keep the container alive
-tail -f /dev/null
+    echo "I'm the master!"
+
+    tail -f /dev/null
