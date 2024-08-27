@@ -84,9 +84,9 @@ spec:
             - name: INSTANCE_ID
               value: "1"
             - name: MONGO_OPLOG_URL
-              value: "127.0.0.1:27017"
+              value: "mongodb://127.0.0.1:27017/local"
             - name: MONGO_URL
-              value: "127.0.0.1:27017"
+              value: "mongodb://127.0.0.1:27017/meteor"
             - name: ROOT_URL
               value: "http://127.0.0.1/html5client"
             - name: NODE_ENV
