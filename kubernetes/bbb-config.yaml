@@ -82,7 +82,7 @@ data:
   
   # TURN SERVER
   # uncomment and adjust following two lines to add an external TURN server
-  TURN_SERVER: turns:srv04.bbb.t-assets.de:5349?transport=tcp
+  TURN_SERVER: turns:srv02.bbb.t-assets.de:5349?transport=tcp
   TURN_SECRET: S9DGGXMHX0Z483bLYbCFM8HAGQ92IZP1
 
   
