@@ -378,9 +378,9 @@ spec:
           imagePullPolicy: Always
           env:
             - name: SERVER_PORT
-              value: "8081" # This line specifies the port the application should listen on.
+              value: "8081"
           ports:
-            - containerPort: 8081 # This exposes the port 8081.
+            - containerPort: 8081
 
         - name: bbb-periodic
           image: destinyakpo/bbb-docker-periodic:v2.7.0
@@ -389,7 +389,7 @@ spec:
             - mountPath: /var/bigbluebutton
               name: bbb-volume
 
-          - name: mongodb
+        - name: mongodb
           image: mongo:4.4
           ports:
             - containerPort: 27017
