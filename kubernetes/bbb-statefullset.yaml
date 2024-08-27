@@ -376,11 +376,6 @@ spec:
         - name: bbb-jodconverter
           image: destinyakpo/bbb-docker-jodconverter:latest
           imagePullPolicy: Always
-          env:
-            - name: SERVER_PORT
-              value: "8081"
-          ports:
-            - containerPort: 8081
 
         - name: bbb-periodic
           image: destinyakpo/bbb-docker-periodic:v2.7.0
