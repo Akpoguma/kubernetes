@@ -406,7 +406,12 @@ spec:
           livenessProbe:
             exec:
               command:
-                - bash -c "if mongo --eval 'quit(db.runCommand({ ping':' 1 }).ok ? 0 ':' 2)'; then exit 0; fi; exit 1;"
+                - bash -c "if mongo --eval 'db.runCommand({ ping: 1 }).ok' | grep 1; then exit 0; else exit 1; fi"
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
           resources: {}
           volumeMounts:
             - mountPath: /data/configdb
