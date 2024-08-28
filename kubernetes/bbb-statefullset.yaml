@@ -250,6 +250,11 @@ spec:
                 configMapKeyRef:
                   name: bbb-config
                   key: DOMAIN
+            - name: EXTERNAL_IPv6
+              valueFrom:
+                configMapKeyRef:
+                  name: bbb-config
+                  key: EXTERNAL_IPv6
             - name: EXTERNAL_IPv4
               valueFrom:
                 configMapKeyRef:
