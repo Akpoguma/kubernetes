@@ -73,11 +73,11 @@ data:
   DOMAIN: srv02.bbb.t-assets.de
   
   EXTERNAL_IPv4: "80.158.111.32"
-  #EXTERNAL_IPv6: 
+  EXTERNAL_IPv6: "::1"
   
   # STUN SERVER
   # stun.freeswitch.org
-  STUN_IP: "80.158.111.32"
+  STUN_IP: "216.93.246.18"
   STUN_PORT: "3478"
   
   # TURN SERVER
