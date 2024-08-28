@@ -19,7 +19,7 @@ chown -R bigbluebutton:bigbluebutton /var/bigbluebutton
 
 echo "$NUMBER_OF_BACKEND_NODEJS_PROCESSES" > /tmp/NUMBER_OF_BACKEND_NODEJS_PROCESSES
 
-export DOMAIN=${HOSTNAME}.yourdomain.com
+export DOMAIN=${HOSTNAME}.srv02.bbb.t-assets.de
 
 cd /usr/share/bbb-web/
 dockerize \

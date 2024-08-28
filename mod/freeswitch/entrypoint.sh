@@ -47,7 +47,7 @@ fi
 export SOUNDS_PATH=$SOUNDS_DIR/$(echo "$SOUNDS_LANGUAGE" | sed 's|-|/|g')
 export EXTERNAL_IPv4=`(curl ifconfig.me)`
 export FREESWITCH_SIP_IP=`(curl ifconfig.me)`
-export DOMAIN=${HOSTNAME}.yourdomain.com
+export DOMAIN=${HOSTNAME}.srv02.bbb.t-assets.de
 
 
 dockerize \

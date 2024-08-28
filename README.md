@@ -3,12 +3,12 @@
 This is using Bigbluebutton Docker Version: 2.3.0 | [Bigbluebutton Docker](https://github.com/bigbluebutton/docker/)
 
 - Build your own dockers on /mod
-- search for "your_docker_repo_name" and update to your docker image
-- search for yourdomain.com and update to your domain
+- search for "destinyakpo" and update to your docker image
+- search for srv02.bbb.t-assets.de and update to your domain
 - search for \<\<update this\>\> and update your value. 
 - run ./deploy.sh
   
-Each scaled bbb instance will have the domain ${HOSTNAME}.yourdomain.com so make scripts to update record set of domain to it.
+Each scaled bbb instance will have the domain ${HOSTNAME}.srv02.bbb.t-assets.de so make scripts to update record set of domain to it.
 
 ## Key Features
   - Remove completely any dependency on instance or private or Public IP.

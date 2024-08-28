@@ -1,4 +1,4 @@
-FROM your_docker_repo_name/bbb-docker_etherpad:2.3
+FROM destinyakpo/bbb-docker_etherpad:2.3
 
 COPY settings.json /opt/etherpad-lite/settings.json
 COPY etherpad-export.sh /etherpad-export.sh

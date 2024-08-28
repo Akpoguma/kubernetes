@@ -12,7 +12,7 @@ export LANG=en_US.UTF-8
 export INSTANCE_MAX=1
 export ENVIRONMENT_TYPE=production
 export NODE_VERSION=node-v12.16.1-linux-x64
-export DOMAIN=${HOSTNAME}.yourdomain.com
+export DOMAIN=${HOSTNAME}.srv02.bbb.t-assets.de
 
 if [ "$DEV_MODE" == true ]; then
     echo "DEV_MODE=true, disable TLS certificate rejecting"

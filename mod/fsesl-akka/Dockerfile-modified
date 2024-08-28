@@ -1,4 +1,4 @@
-FROM your_docker_repo_name/bbb-docker_fsesl-akka:2.3
+FROM destinyakpo/bbb-docker_fsesl-akka:2.3
 COPY bbb-fsesl-akka.conf /etc/bigbluebutton/bbb-fsesl-akka.conf.tmpl
 COPY logback.xml /bbb-fsesl-akka/conf/logback.xml
 

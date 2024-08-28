@@ -21,7 +21,7 @@ public:
     bbbServerVersion: 2.3-dev-docker
     copyright: '©2021 Bigbluebutton'
     html5ClientBuild: "1669-docker"
-    helpLink: https://yourdomain.com
+    helpLink: https://srv02.bbb.t-assets.de
     lockOnJoin: true
     cdn: ''
     basename: '/html5client'

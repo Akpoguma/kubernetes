@@ -5,5 +5,5 @@ version="$1"
     echo "Need to enter version"
     Error
 }
-DOCKER_BUILDKIT=1 docker buildx build --platform linux/amd64 --load -f Dockerfile-modified -t your_docker_repo_name/bbb-docker_jodconverter:$1 .
-docker push your_docker_repo_name/bbb-docker_jodconverter:$1
+DOCKER_BUILDKIT=1 docker buildx build --platform linux/amd64 --load -f Dockerfile-modified -t destinyakpo/bbb-docker_jodconverter:$1 .
+docker push destinyakpo/bbb-docker_jodconverter:$1

@@ -1,5 +1,5 @@
 # add entrypoint and templates
-FROM your_docker_repo_name/bbb-docker_bbb-web:2.3
+FROM destinyakpo/bbb-docker_bbb-web:2.3
 COPY entrypoint.sh /entrypoint.sh
 COPY bbb-web.properties /etc/bigbluebutton/bbb-web.properties.tmpl
 COPY turn-stun-servers.xml /usr/share/bbb-web/WEB-INF/classes/spring/turn-stun-servers.xml.tmpl
