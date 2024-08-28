@@ -213,6 +213,8 @@ spec:
                   key: SHARED_SECRET
             - name: DEV_MODE
               value: "false"
+            - name: ENABLE_LEARNING_DASHBOARD
+              value: "true"
             - name: ENABLE_RECORDING
               value: "false"
             - name: WELCOME_MESSAGE
