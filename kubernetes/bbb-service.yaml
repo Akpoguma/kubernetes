@@ -5,7 +5,7 @@ metadata:
   namespace: bbb
 spec:
   selector:
-    app: bbb-0
+    app: bbb
   ports:
     - protocol: TCP
       port: 80  # The port on the service
