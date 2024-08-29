@@ -10,5 +10,5 @@ spec:
     - protocol: TCP
       port: 80  # The port on the service
       targetPort: 8080  # The correct port on the container
-      #nodePort: 30001  # The port exposed on the node
-  type: LoadBalancer
+      nodePort: 30001  # The port exposed on the node
+  type: NodePort
