@@ -5,10 +5,10 @@ metadata:
   namespace: bbb
 spec:
   selector:
-    app: bbb
+    app: bbb-0
   ports:
     - protocol: TCP
       port: 80  # The port on the service
       targetPort: 8090  # The correct port on the container
-      nodePort: 30001  # The port exposed on the node
-  type: NodePort
+      #nodePort: 30001  # The port exposed on the node
+  type: ClusterIP
